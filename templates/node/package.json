@@ -1,0 +1,28 @@
+{
+  "name": "latitude55-node-template",
+  "version": "0.0.1",
+  "description": "Latitude55 Node Template",
+  "main": "index.js",
+  "engines": {
+    "node": "^18.15.0"
+  },
+  "scripts": {
+    "dev": "nodemon",
+    "build": "npx tsc cp -r ./src/data ./dist",
+    "start": "node ./dist/index",
+    "lint": "eslint src/**",
+    "lint:formatting": "prettier --check src/**/*.*"
+  },
+  "author": "Hugh Loughrey",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "8.53.0",
+    "nodemon": "3.0.1",
+    "prettier": "3.0.3",
+    "ts-node": "10.9.1",
+    "typescript": "5.2.2"
+  },
+  "volta": {
+    "node": "18.16.1"
+  }
+}

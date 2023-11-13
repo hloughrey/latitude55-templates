@@ -1,0 +1,66 @@
+name: Deploy master branch
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  lint-test:
+    name: Format & Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - uses: bahmutov/npm-install@v1.4.5
+      - run: npm install
+
+      - name: npm format & lint
+        run: |
+          npm run format
+          npm run lint
+
+  build:
+    name: Build application
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - uses: bahmutov/npm-install@v1.4.5
+      - run: npm install
+
+      - name: build
+        run: npm run build
+
+  deploy:
+    name: Deploy application
+    needs: [lint-test, build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - uses: bahmutov/npm-install@v1.4.5
+      - run: npm install
+
+      - name: Configure AWS profile
+        run: npm run ci:configure -- -n git-deploy -p aws -k ${{ secrets.AWS_ACCESS_KEY_ID }} -s ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Deploy
+        run: npm run ci:deploy -- -s dev "--aws-profile" git-deploy

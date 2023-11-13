@@ -1,0 +1,28 @@
+service: serverless-template
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-webpack
+  - serverless-offline
+  # - serverless-domain-manager
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  profile: serverless-template
+  region: "${opt:region, env:REGION, 'eu-west-1'}"
+  stage: "${opt:stage, env:STAGE, 'dev'}"
+
+package:
+  individually: true
+
+useDotenv: true
+
+functions:
+  hello-world:
+    name: 'hello-world-${self:provider.stage}'
+    handler: src/lambda/hello-world/hello-world.handler
+    events:
+      - http:
+          method: GET
+          path: hello/{name}

@@ -1,0 +1,17 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+.build
+.webpack
+
+# esbuild directories
+.esbuild
+
+# Local testing
+.env*
+!.env.template
+coverage
+.DS_Store
