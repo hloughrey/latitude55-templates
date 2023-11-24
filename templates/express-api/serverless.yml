@@ -1,0 +1,36 @@
+service: latitude55-task-list
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-webpack
+  - serverless-offline
+  # - serverless-domain-manager
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  profile: git-deploy
+  region: "${opt:region, env:REGION, 'eu-west-1'}"
+  stage: "${opt:stage, env:STAGE, 'dev'}"
+
+custom:
+  serverless-offline:
+    noPrependStageInUrl: true
+
+package:
+  individually: true
+
+useDotenv: true
+
+functions:
+  app:
+    handler: src/lambda/api.handler
+    events:
+      - http:
+          path: /
+          method: GET
+          cors: true
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true

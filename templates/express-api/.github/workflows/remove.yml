@@ -1,0 +1,27 @@
+name: Tear down AWS Stack
+
+on: workflow_dispatch
+
+jobs:
+  remove:
+    name: Remove application
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - uses: bahmutov/npm-install@v1
+      - run: npm install
+
+      - name: Configure AWS profile
+        run: npm run ci:configure -- -n git-deploy -p aws -k ${{ secrets.AWS_ACCESS_KEY_ID }} -s ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Remove Dev
+        run: npm run ci:remove -- -s dev "--aws-profile" git-deploy
+
+      - name: Remove Prod
+        run: npm run ci:remove -- -s prod "--aws-profile" git-deploy

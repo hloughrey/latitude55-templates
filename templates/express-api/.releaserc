@@ -1,0 +1,61 @@
+{
+  "branches": "master",
+  "preset": "conventionalcommits",
+  "presetConfig": {
+    "types": [
+      {
+        "type": "feat",
+        "section": "Features ✨"
+      },
+      {
+        "type": "fix",
+        "section": "Bug Fixes 🐛"
+      },
+      {
+        "type": "refactor",
+        "section": "Code Refactoring 📦"
+      },
+      {
+        "type": "perf",
+        "section": "Performance Improvements 🚀"
+      },
+      {
+        "type": "revert",
+        "section": "Reverts 🗑"
+      },
+      {
+        "type": "docs",
+        "section": "Docs 📖"
+      }
+    ]
+  },
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md",
+        "changelogTitle": "# Latitude55 Task List"
+      }
+    ],
+    [
+      "@semantic-release/npm",
+      {
+        "npmPublish": false,
+        "tarballDir": "dist"
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "message": "chore(release): ${nextRelease.version} [skip ci]",
+        "assets": [
+          "package.json",
+          "package-lock.json",
+          "CHANGELOG.md"
+        ]
+      }
+    ]
+  ]
+}

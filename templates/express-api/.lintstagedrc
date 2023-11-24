@@ -1,0 +1,5 @@
+{
+  "*.ts": ["eslint --fix"],
+  "*.{ts,md}": "prettier --ignore-unknown --write"
+}
+

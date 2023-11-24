@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "f9ea04f9-bdc2-43d2-bf94-06d27252d892",
+		"name": "Tasks API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "192268"
+	},
+	"item": [
+		{
+			"name": "Tasks Lists",
+			"item": [
+				{
+					"name": "/task-lists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}{{base_path}}{{version}}/task-lists",
+							"host": [
+								"{{host}}{{base_path}}{{version}}"
+							],
+							"path": [
+								"task-lists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/task-lists/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}{{base_path}}{{version}}/task-lists/8f1e43de-4037-11ee-9476-0242ac160002",
+							"host": [
+								"{{host}}{{base_path}}{{version}}"
+							],
+							"path": [
+								"task-lists",
+								"8f1e43de-4037-11ee-9476-0242ac160002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/task-lists/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}{{base_path}}{{version}}/task-lists/8f1e43de-4037-11ee-9476-0242ac160002",
+							"host": [
+								"{{host}}{{base_path}}{{version}}"
+							],
+							"path": [
+								"task-lists",
+								"8f1e43de-4037-11ee-9476-0242ac160002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/task-lists",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Book holiday\",\n  \"description\": \"Book family holiday\",\n  \"completed\": false,\n  \"tasks\": [\"5f82a28c-4037-11ee-ba81-0242ac160002\"]\n}"
+						},
+						"url": {
+							"raw": "{{host}}{{base_path}}{{version}}/task-lists",
+							"host": [
+								"{{host}}{{base_path}}{{version}}"
+							],
+							"path": [
+								"task-lists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/task-lists/:id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"House tasks\",\n  \"description\": \"Book family holiday\",\n  \"completed\": false,\n  \"tasks\": [\"5f82a28c-4037-11ee-ba81-0242ac160002\"]\n}"
+						},
+						"url": {
+							"raw": "{{host}}{{base_path}}{{version}}task-lists/8f1e43de-4037-11ee-9476-0242ac160002",
+							"host": [
+								"{{host}}{{base_path}}{{version}}task-lists"
+							],
+							"path": [
+								"8f1e43de-4037-11ee-9476-0242ac160002"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "/tasks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}{{base_path}}{{version}}/tasks",
+							"host": [
+								"{{host}}{{base_path}}{{version}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/tasks/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}{{base_path}}{{version}}/tasks/933a7eca-4036-11ee-80fe-0242ac160002",
+							"host": [
+								"{{host}}{{base_path}}{{version}}"
+							],
+							"path": [
+								"tasks",
+								"933a7eca-4036-11ee-80fe-0242ac160002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/tasks/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}{{base_path}}{{version}}/tasks/933a7eca-4036-11ee-80fe-0242ac160002",
+							"host": [
+								"{{host}}{{base_path}}{{version}}"
+							],
+							"path": [
+								"tasks",
+								"933a7eca-4036-11ee-80fe-0242ac160002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/tasks/:id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Make dinner\",\n\t\"description\": \"Make the dinner\",\n\t\"completed\": false\n}"
+						},
+						"url": {
+							"raw": "{{host}}{{base_path}}{{version}}/tasks/933a7eca-4036-11ee-80fe-0242ac160002",
+							"host": [
+								"{{host}}{{base_path}}{{version}}"
+							],
+							"path": [
+								"tasks",
+								"933a7eca-4036-11ee-80fe-0242ac160002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/tasks",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Make dinner\",\n\t\"description\": \"Make the dinner for everyone\",\n\t\"completed\": false\n}"
+						},
+						"url": {
+							"raw": "{{host}}{{base_path}}{{version}}/tasks",
+							"host": [
+								"{{host}}{{base_path}}{{version}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

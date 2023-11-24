@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@latitude55/libs": ["src/libs"],
+      "@latitude55/modules/*": ["src/modules/*"],
+      "@latitude55/types": ["src/types"],
+      "@latitude55/middleware": ["src/middleware"]
+    }
+  }
+}
